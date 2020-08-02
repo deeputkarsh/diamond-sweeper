@@ -1,32 +1,29 @@
 import { createActions, handleActions, combineActions } from 'redux-actions'
-import { CELL_STATUS } from '../constants'
-import { store } from './configure_store'
+import { CELL_STATUS, GRID_SIZE, APP_STATUS } from '../constants'
+import { getStartApp, getNewStatus } from '../helpers'
 
 const defaultState = {
-  cellData: getStartApp(8, 8)
+  cellData: getStartApp(GRID_SIZE, GRID_SIZE),
+  status: APP_STATUS.READY,
+  score: GRID_SIZE * GRID_SIZE
 }
 
 const { onCellClick } = createActions({
-  ON_CELL_CLICK: (row, col) => {
-    const oldData = store.getState().appState.cellData
-    const newData = JSON.parse(JSON.stringify(oldData))
-    newData[row][col].status = CELL_STATUS.OPEN
-    return { cellData: newData }
-  }
-}, { prefix: 'USER' })
+  ON_CELL_CLICK: (row, col) => ({ row, col })
+}, { prefix: 'APP' })
 
 export const AppAction = { onCellClick }
 
-export default handleActions({ [combineActions(onCellClick)]: (state, { payload }) => ({ ...state, ...payload }) }, defaultState)
-
-function getStartApp (row, col) {
-  const retData = []
-  for (let i = 0; i < row; i++) {
-    retData[i] = []
-    const diamondAt = Math.floor(Math.random() * 8)
-    for (let j = 0; j < col; j++) {
-      retData[i][j] = { status: CELL_STATUS.CLOSED, diamond: diamondAt === j }
+export default handleActions({
+  [combineActions(onCellClick)]: (state, { type, payload }) => {
+    if (type === 'APP/ON_CELL_CLICK') {
+      const { row, col } = payload
+      const { cellData } = state
+      const newData = JSON.parse(JSON.stringify(cellData))
+      newData[row][col].status = CELL_STATUS.OPEN
+      const { status, score } = getNewStatus(newData)
+      return { cellData: newData, status, score }
     }
+    return state
   }
-  return retData
-}
+}, defaultState)
