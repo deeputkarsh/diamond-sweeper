@@ -6,7 +6,8 @@
     "clean": "rimraf dist",
     "start": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && webpack  --mode=production --progress --profile --colors --display-error-details"
+    "build": "npm run clean && webpack  --mode=production --progress --profile --colors --display-error-details",
+    "deploy": "PUBLIC_PATH='/diamond-sweeper/' npm run build && gh-pages -d dist"
   },
   "keywords": [],
   "author": "Utkarsh Deep",
