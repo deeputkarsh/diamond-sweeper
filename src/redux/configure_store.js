@@ -3,7 +3,7 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import promiseMiddleware from 'redux-promise'
 
-import userStore from './userActions'
+import userStore from './user_actions'
 
 const rootReducer = combineReducers({
   userStore
