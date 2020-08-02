@@ -6,6 +6,12 @@ export const APP_STATUS = {
   GAME_OVER: 'Game Over'
 }
 
+export const GAME_STATUS_CLASS = {
+  Ready: 'ready',
+  Playing: 'playing',
+  'Game Over': 'finished'
+}
+
 export const CELL_STATUS = {
   CLOSED: 'closed',
   OPEN: 'open'

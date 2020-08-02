@@ -20,7 +20,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: #777777;
+  color: #ffffff;
+  &.ready {
+    background-color: #2AC13B;
+  }
+  &.playing {
+    background-color: #C1B82A;
+  }
+  &.finished {
+    background-color: #E85858;
+  }
 }
 
 .gridContainer {
@@ -28,7 +38,6 @@
   grid-template-columns: auto auto auto auto auto auto auto auto;
   width: 85vw;
   height: 85vw;
-  padding: 20px;
   max-width: 648px;
   max-height: 648px;
 }
