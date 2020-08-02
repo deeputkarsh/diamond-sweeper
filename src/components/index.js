@@ -4,7 +4,7 @@ import styles from './styles.scss'
 import { connect } from 'react-redux'
 import { APP_STATUS } from '../constants'
 
-function App ({ cellData, score, status }) {
+function App ({ cellData, score, hint, status }) {
   const isGameOver = status === APP_STATUS.GAME_OVER
   return (
     <div className={styles.container}>
@@ -15,6 +15,7 @@ function App ({ cellData, score, status }) {
             <div key={`cell_${ri}_${ci}`} className={styles.gridItem}>
               <Cell
                 {...cell}
+                hint={hint}
                 col={ci}
                 row={ri}
                 isClickable={!isGameOver}

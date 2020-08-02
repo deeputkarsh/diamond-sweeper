@@ -20,3 +20,12 @@ export const getNewStatus = (cellData) => {
     score: (GRID_SIZE * GRID_SIZE) - openedCell
   }
 }
+
+export const getHint = (cellData, row, col) => {
+  const clicked = cellData[row][col]
+  if (clicked.diamond) return { row: -1, col: -1, direction: '' }
+  const returnObj = { row, col, direction: 'right' }
+  const rowDiamondIndex = cellData[row].findIndex(item => item.diamond)
+  if (rowDiamondIndex < col)returnObj.direction = 'left'
+  return returnObj
+}

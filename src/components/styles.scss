@@ -42,6 +42,9 @@
 
   &.arrow {
     background-image: url(../../assets/arrow.png);
+    &.left {
+      transform: rotate(180deg);
+    }
   }
 
   &.unknown {
