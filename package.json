@@ -49,6 +49,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-standard": "^4.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
@@ -63,7 +64,8 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint . --fix", "git add"
+      "eslint . --fix",
+      "git add"
     ]
   },
   "husky": {
