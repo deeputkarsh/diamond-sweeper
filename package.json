@@ -63,10 +63,14 @@
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.11.0"
   },
+  "lint-staged": {
+    "*.js": [
+      "eslint . --fix", "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint"
+      "pre-commit": "lint-staged"
     }
   },
   "browserslist": [
