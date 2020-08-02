@@ -137,7 +137,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/diamond-sweeper/";
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
@@ -533,4 +533,4 @@ react_dom_default.a.render(renderDom, document.getElementById('root'));
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.6f9eea32.js.map
+//# sourceMappingURL=main.fa046d4b.js.map
