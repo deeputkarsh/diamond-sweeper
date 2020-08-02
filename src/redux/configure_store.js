@@ -3,10 +3,10 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import promiseMiddleware from 'redux-promise'
 
-import userStore from './app_actions'
+import appState from './app_actions'
 
 const rootReducer = combineReducers({
-  userStore
+  appState
 })
 let middleware = ''
 if (process.env.NODE_ENV === 'production') {
