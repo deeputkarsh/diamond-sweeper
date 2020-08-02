@@ -2,9 +2,10 @@ const webpack = require('webpack')
 const dotenv = require('dotenv')
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const rootDir = path.resolve(__dirname, '.')
 const distDir = path.resolve(__dirname, '.', 'dist')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const cssnano = require('cssnano')
 
 module.exports = () => {
@@ -51,7 +52,7 @@ module.exports = () => {
         test: /\.(scss|sass)$/,
         exclude: /node_modules/,
         use: [{
-          loader: 'style-loader'
+          loader: process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader'
         }, {
           loader: 'css-loader',
           options: {
@@ -125,7 +126,11 @@ module.exports = () => {
           js: ['bundle.js']
         }
       }),
-      new webpack.DefinePlugin(envKeys)
+      new webpack.DefinePlugin(envKeys),
+      new MiniCssExtractPlugin({
+        filename: 'style.css',
+        chunkFilename: '[name].[hash].css'
+      })
     ]
   }
 }
