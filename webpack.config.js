@@ -9,10 +9,10 @@ const cssnano = require('cssnano')
 
 module.exports = () => {
   const env = dotenv.config().parsed
-  const envKeys = Object.keys(env).reduce((prev, next) => {
+  const envKeys = env ? Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next])
     return prev
-  }, {})
+  }, {}) : {}
   return {
     context: rootDir,
     entry: './src/index.js',
