@@ -10,7 +10,7 @@ function Cell ({ status, diamond, row, col, isClickable, onCellClick }) {
   const diamondClass = diamond ? styles.diamond : ''
   const handleCellClick = (row, col) => isClickable && isClosed && onCellClick(row, col)
   return (
-    <div onClick={_ => handleCellClick(row, col)} className={`${styles.cell} ${statusClass} ${diamondClass}`} />
+    <figure onClick={_ => handleCellClick(row, col)} className={`${styles.cell} ${statusClass} ${diamondClass}`} />
   )
 }
 
