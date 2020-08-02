@@ -1,0 +1,66 @@
+@mixin flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  @include flexCenter;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.message {
+  @include flexCenter;
+  padding: 1rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #777777;
+  color: #ffffff;
+  &.ready {
+    background-color: #2AC13B;
+  }
+  &.playing {
+    background-color: #C1B82A;
+  }
+  &.finished {
+    background-color: #E85858;
+  }
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  width: 85vw;
+  height: 85vw;
+  max-width: 648px;
+  max-height: 648px;
+}
+.gridItem {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.cell {
+  background-size: 100% 100%;
+  margin: 0;
+
+  &.diamond {
+    background-image: url(../../assets/diamond.png);
+  }
+
+  &.arrow {
+    background-image: url(../../assets/arrow.png);
+    &.left {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.unknown {
+    background-image: url(../../assets/question.png);
+  }
+}
