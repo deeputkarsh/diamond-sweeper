@@ -5,35 +5,39 @@
   align-items: center;
 }
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
   @include flexCenter;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-.main {
-  padding: 5rem 0;
-  flex: 1;
-  @include flexCenter;
-}
 .message {
-  padding: 0.5rem 0;
   @include flexCenter;
+  padding: 1rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e5e5e5;
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto; 
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  width: 85vw;
+  height: 85vw;
+  padding: 20px;
+  max-width: 648px;
+  max-height: 648px;
 }
 .gridItem {
   border: 1px solid rgba(0, 0, 0, 0.8);
-  height: 50px;
-  width: 50px;
 }
 
 .cell {
-  height: 50px;
-  width: 50px;
-  background-size: 50px 50px;
+  background-size: 100% 100%;
   margin: 0;
 
   &.diamond {
